@@ -13,7 +13,6 @@ import main.StudentSorting.Student.Student;
 public class Sorting {
 	static String firstLine;
 
-	public static final Integer filesFirstLine = 0;
 	public static final Integer firstStudentLine = 0;
 	public static Integer course1Index = 0;
 	public static Integer course2Index = 0;
@@ -30,7 +29,6 @@ public class Sorting {
 
 	// this method takes a String from the application and uses it as the file path
 	// for the list of Students
-	//
 	public Student[] convertStudentCSVToArray(String path) throws FileNotFoundException, IOException {
 
 		try (BufferedReader reader = new BufferedReader(new FileReader(path));) {
