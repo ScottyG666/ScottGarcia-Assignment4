@@ -1,33 +1,35 @@
 package main.StudentSorting.Application;
 
-import java.io.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Collections;
 
 import main.StudentSorting.Student.Student;
-import main.StudentSorting.Utilities.Sorting;
+import main.StudentSorting.Utilities.Course1;
+import main.StudentSorting.Utilities.Course2;
+import main.StudentSorting.Utilities.Course3;
 
 public class StudentSortingApplication {
 
-	static String fileToBeRead = null;
+	static String fileToBeRead = "MasterListFile.txt";
 
 	static Student[] students = new Student[100];
 
 	// COMPSCI students
-	static Student[] course1 = new Student[34];
+	static Course1 course1 = null;
 	// STAT students
-	static Student[] course2 = new Student[33];
-	//APMTH students
-	static Student[] course3 = new Student[33];
-	
-	static Student[][] arrayOfCourses = { course1, course2, course3 };
+	static Course2 course2 = null;
+	// APMTH students
+	static Course3 course3 = null;
+
+//	static Student[][] arrayOfCourses = { course1, course2, course3 };
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
-		
-		Sorting sort = new Sorting();
-		
-		students = sort.convertStudentCSVToArray("MasterListFile.txt");
-		
-		arrayOfCourses = sort.organizeStudentArray(students);
-
-		sort.convertingStudentArrayToFiles(arrayOfCourses);
+//
+		course1 = new Course1(fileToBeRead,"COMPSCI");
+		course1.printStudents();
+//		course2 = new Course2(fileToBeRead, "STAT");
+//		course2.printStudents();
+//		course3 = new Course3(fileToBeRead, "APMTH");
 	}
 }
