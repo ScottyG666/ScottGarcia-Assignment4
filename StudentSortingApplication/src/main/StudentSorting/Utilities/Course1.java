@@ -15,8 +15,5 @@ public class Course1 extends AbstractCourse {
 		return arrayOfStudentsForInstantiatedCourse;
 	}
 	
-	Student[] organizeStudentArray(Student[] completeStudentList) {
-		return null;
-	}
 
 }

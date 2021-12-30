@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 import main.StudentSorting.Student.Student;
 
@@ -33,10 +34,10 @@ abstract class AbstractCourse {
 				if (tempStudent.getStudentClass().contains(nameOfClass)) {
 					this.arrayOfStudentsForInstantiatedCourse.add(tempStudent);
 				}
-//				Collections.sort(this.arrayOfStudentsForInstantiatedCourse);
+				
 			}
 		}
-
+		
 	}
 
 	public void printStudents() {
@@ -44,6 +45,15 @@ abstract class AbstractCourse {
 			System.out.println(student.getStudentCSV());
 
 		}
+	}
+	
+	public void sortStudents() throws NumberFormatException{
+		Collections.sort(this.arrayOfStudentsForInstantiatedCourse, new Comparator<Student>() 
+		{
+			public int compare(Student s1, Student s2) {
+				return Integer.valueOf(s2.getStudentGradeInteger()).compareTo(s1.getStudentGradeInteger());
+			}
+		});
 	}
 }
 

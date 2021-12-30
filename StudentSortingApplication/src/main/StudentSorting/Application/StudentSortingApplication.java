@@ -27,9 +27,13 @@ public class StudentSortingApplication {
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 //
 		course1 = new Course1(fileToBeRead,"COMPSCI");
-		course1.printStudents();
-//		course2 = new Course2(fileToBeRead, "STAT");
+		course1.sortStudents();
+//		course1.printStudents();
+		course2 = new Course2(fileToBeRead, "STAT");
+		course2.sortStudents();
 //		course2.printStudents();
-//		course3 = new Course3(fileToBeRead, "APMTH");
+		course3 = new Course3(fileToBeRead, "APMTH");
+		course3.sortStudents();
+//		course3.printStudents();
 	}
 }

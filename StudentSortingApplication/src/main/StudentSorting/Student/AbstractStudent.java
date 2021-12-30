@@ -6,6 +6,20 @@ public abstract class AbstractStudent{
 	protected String studentClass;
 	protected String studentGrade;
 	protected String studentCSV;
+	protected Integer studentGradeInteger;
+	
+	public AbstractStudent(String studentInfo) {
+		this.studentCSV = studentInfo;
+		String[] studentInfoDivided = studentInfo.split(",");
+
+		this.setStudentID(studentInfoDivided[0]);
+		this.setStudentName(studentInfoDivided[1]);
+		this.setStudentClass(studentInfoDivided[2]);
+		this.setStudentGrade(studentInfoDivided[3]);
+
+	}
+	
+
 	
 
 	public String getStudentID() {
@@ -21,11 +35,11 @@ public abstract class AbstractStudent{
 	}
 
 	public Integer getStudentGradeInteger() {
-		return (Integer) Integer.parseInt(studentGrade);
+		return (Integer) Integer.parseInt(this.studentGrade);
 	}
 	
 
-	public String getStudentGradeString() {
+	public String getStudentGrade() {
 		return studentGrade;
 	}
 
@@ -49,12 +63,14 @@ public abstract class AbstractStudent{
 
 
 
-	public void setStudentGradeString(String studentGradeString) {
-		this.studentGrade = studentGradeString;
+	public void setStudentGrade(String studentGrade) {
+		this.studentGrade = studentGrade;
 	}
 
-	public void setStudentCSV(String path, String studentCSV) {
+	public void setStudentCSV(String studentCSV) {
 		this.studentCSV = studentCSV;
 	}
+	
 
 }
+
