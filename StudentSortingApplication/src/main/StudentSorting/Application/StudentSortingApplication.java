@@ -28,7 +28,7 @@ public class StudentSortingApplication {
 //
 		course1 = new Course1(fileToBeRead,"COMPSCI");
 		course1.sortStudents();
-//		course1.printStudents();
+		course1.printStudents();
 		course2 = new Course2(fileToBeRead, "STAT");
 		course2.sortStudents();
 //		course2.printStudents();
