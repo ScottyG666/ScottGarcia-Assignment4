@@ -1,7 +1,9 @@
 package main.StudentSorting.Utilities;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,9 +21,6 @@ abstract class AbstractCourse {
 	protected String nameOfClass;
 	public ArrayList<Student> arrayOfStudentsForInstantiatedCourse = new ArrayList<Student>();
 
-	static final Integer firstLineOfFileToDefineColumns = 0;
-	static Integer firstLineOfFileForStudents = 1;
-
 	public AbstractCourse(String path, String nameOfClass) throws IOException {
 		this.nameOfClass = nameOfClass;
 
@@ -34,10 +33,15 @@ abstract class AbstractCourse {
 				if (tempStudent.getStudentClass().contains(nameOfClass)) {
 					this.arrayOfStudentsForInstantiatedCourse.add(tempStudent);
 				}
-				
+
 			}
 		}
-		
+		Collections.sort(this.arrayOfStudentsForInstantiatedCourse, new Comparator<Student>() {
+			public int compare(Student s1, Student s2) {
+				return Integer.valueOf(s2.getStudentGradeInteger()).compareTo(s1.getStudentGradeInteger());
+			}
+		});
+
 	}
 
 	public void printStudents() {
@@ -46,14 +50,17 @@ abstract class AbstractCourse {
 
 		}
 	}
-	
-	public void sortStudents() throws NumberFormatException{
-		Collections.sort(this.arrayOfStudentsForInstantiatedCourse, new Comparator<Student>() 
-		{
-			public int compare(Student s1, Student s2) {
-				return Integer.valueOf(s2.getStudentGradeInteger()).compareTo(s1.getStudentGradeInteger());
+
+	public void writeStudentListToSpecifiedFile(String fileName) {
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter("course1.txt"))) {
+
+			writer.write(FirstLineOfFile.getInfo() + "\n");
+
+			for (Student student : this.arrayOfStudentsForInstantiatedCourse) {
+				writer.write(student.getInfo() + "\n");
 			}
-		});
+		} catch (IOException e) {
+			System.out.println("There seems to be an IO Exception");
+		}
 	}
 }
-

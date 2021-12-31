@@ -1,13 +1,13 @@
 package main.StudentSorting.Student;
 
-public abstract class AbstractStudent{
+public abstract class AbstractStudent {
 	protected String studentID;
 	protected String studentName;
 	protected String studentClass;
 	protected String studentGrade;
 	protected String studentCSV;
 	protected Integer studentGradeInteger;
-	
+
 	public AbstractStudent(String studentInfo) {
 		this.studentCSV = studentInfo;
 		String[] studentInfoDivided = studentInfo.split(",");
@@ -18,9 +18,6 @@ public abstract class AbstractStudent{
 		this.setStudentGrade(studentInfoDivided[3]);
 
 	}
-	
-
-	
 
 	public String getStudentID() {
 		return studentID;
@@ -37,17 +34,14 @@ public abstract class AbstractStudent{
 	public Integer getStudentGradeInteger() {
 		return (Integer) Integer.parseInt(this.studentGrade);
 	}
-	
 
 	public String getStudentGrade() {
 		return studentGrade;
 	}
 
-
 	public String getStudentCSV() {
 		return studentCSV;
 	}
-	
 
 	public void setStudentID(String studentID) {
 		this.studentID = studentID;
@@ -61,8 +55,6 @@ public abstract class AbstractStudent{
 		this.studentClass = studentClass;
 	}
 
-
-
 	public void setStudentGrade(String studentGrade) {
 		this.studentGrade = studentGrade;
 	}
@@ -70,7 +62,5 @@ public abstract class AbstractStudent{
 	public void setStudentCSV(String studentCSV) {
 		this.studentCSV = studentCSV;
 	}
-	
 
 }
-
