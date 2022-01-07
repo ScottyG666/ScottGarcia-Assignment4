@@ -36,11 +36,7 @@ abstract class AbstractCourse {
 
 			}
 		}
-		Collections.sort(this.arrayOfStudentsForInstantiatedCourse, new Comparator<Student>() {
-			public int compare(Student s1, Student s2) {
-				return Integer.valueOf(s2.getStudentGradeInteger()).compareTo(s1.getStudentGradeInteger());
-			}
-		});
+		Collections.sort(this.arrayOfStudentsForInstantiatedCourse, (Student s1, Student s2) -> Integer.valueOf(s2.getStudentGradeInteger()).compareTo(s1.getStudentGradeInteger()));
 
 	}
 
@@ -52,7 +48,7 @@ abstract class AbstractCourse {
 	}
 
 	public void writeStudentListToSpecifiedFile(String fileName) {
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter("course1.txt"))) {
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
 
 			writer.write(FirstLineOfFile.getInfo() + "\n");
 
